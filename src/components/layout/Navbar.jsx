@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import { FaBars, FaTimes, FaCode } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useClerk, UserButton, useUser } from '@clerk/clerk-react'
 
 const navItems = [
   { name: 'Home', path: '/' },
@@ -15,6 +16,9 @@ const navItems = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
+
+  const { user } = useUser();
+  const { openSignIn } = useClerk();
 
   return (
     <nav className="bg-gray-900 shadow-md sticky top-0 z-50">
@@ -41,8 +45,7 @@ const Navbar = () => {
                 <NavLink
                   to={path}
                   className={({ isActive }) =>
-                    `text-sm font-medium ${
-                      isActive ? 'text-blue-400' : 'text-gray-300'
+                    `text-sm font-medium ${isActive ? 'text-blue-400' : 'text-gray-300'
                     } hover:text-blue-300 transition duration-300`
                   }
                 >
@@ -61,9 +64,13 @@ const Navbar = () => {
               </motion.li>
             ))}
           </ul>
-          <button className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition duration-300 cursor-pointer">
-            Sign In
-          </button>
+          {
+            user ? <UserButton /> : (
+              <button onClick={openSignIn} className="ml-4 flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium transition duration-300 cursor-pointer">
+                Sign In
+              </button>
+            )
+          }
         </div>
 
         {/* Mobile Toggle Button */}
@@ -94,8 +101,7 @@ const Navbar = () => {
                     to={path}
                     onClick={() => setIsOpen(false)}
                     className={({ isActive }) =>
-                      `block w-full py-1 text-sm font-medium ${
-                        isActive ? 'text-blue-400' : 'text-gray-300'
+                      `block w-full py-1 text-sm font-medium ${isActive ? 'text-blue-400' : 'text-gray-300'
                       } hover:text-blue-300 transition`
                     }
                   >
