@@ -25,7 +25,7 @@ const TrendingThreads = () => {
   return (
     <section className="my-16">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold">🔥 Trending Threads</h2>
+        <h2 className="text-3xl font-bold text-blue-400">🔥 Trending Threads</h2>
         <Link
           to="/community"
           className="text-blue-600 font-medium hover:underline cursor-pointer"

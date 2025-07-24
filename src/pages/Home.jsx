@@ -2,10 +2,11 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import WhyJoin from '../Hero/WhyJoin';
 import TrendingThreads from '../Hero/TrendingThreads';
+import FeaturedTools from '../Hero/FeaturedTools';
 
 const Home = () => {
   return (
-    <section className="relative py-20 px-6 md:px-12 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#0f172a] space-y-24">
+    <section className="relative py-20 px-6 md:px-12 space-y-24">
       <div className="max-w-5xl mx-auto text-center">
         <motion.h1
           className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6"
@@ -47,6 +48,7 @@ const Home = () => {
       </div>
       <WhyJoin />
       <TrendingThreads />
+      <FeaturedTools />
     </section>
   );
 };
