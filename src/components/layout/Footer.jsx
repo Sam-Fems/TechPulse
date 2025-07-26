@@ -9,9 +9,9 @@ const Footer = () => {
         <div className='max-w-80'>
           <NavLink
             to="/"
-            className="flex items-center gap-2 text-2xl font-bold text-blue-400"
+            className="flex items-center gap-2 text-2xl font-bold text-blue-500"
           >
-            <FaCode className="text-blue-400" />
+            <FaCode className="text-blue-500" />
             TechPulse
           </NavLink>
           <p className='text-sm'>
@@ -53,10 +53,12 @@ const Footer = () => {
             Subscribe to our newsletter for inspiration and special offers.
           </p>
           <div className='flex items-center mt-4'>
-            <input type="text" className='bg-gray-200 rounded-l border border-blue-800 h-9 px-3 outline-none' placeholder='Your email' />
-            <button className='flex items-center justify-center bg-blue-700 h-9 w-9 aspect-square rounded-r'>
-              <ArrowRight className="w-4 h-4 text-white cursor-pointer" width="24" height="24" viewBox="0 0 24 24" />
-            </button>
+            <input type="text" className='bg-transparent rounded-l border border-blue-800 h-9 px-3 outline-none' placeholder='Your email' />
+            <a href="/news">
+              <button className='flex items-center justify-center bg-blue-800 h-9 w-9 aspect-square rounded-r'>
+                <ArrowRight className="w-4 h-4 text-white cursor-pointer" width="24" height="24" viewBox="0 0 24 24" />
+              </button>
+            </a>
           </div>
         </div>
       </div>
